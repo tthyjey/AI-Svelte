@@ -1,3 +1,10 @@
+<script>
+    import ToDoList from "./components/to-do-list/+page.svelte";
+	import AiSummarizer from "./components/ai-summarizer/+page.svelte";
+	import Login from "./components/login/+page.svelte";
+
+    let currentPage = 'todo';
+</script>
 <div class="flex">
     <!-- SIDE BAR -->
      <div class="h-screen w-[15%] pt-10 bg-pink-400 rounded-r-2xl flex flex-col justify-between">
@@ -50,6 +57,10 @@
      </div>
      <!-- MAIN PAGE -->
       <div class="w-full p-6">
-
+        {#if currentPage === 'todo'}
+				<ToDoList />
+			{:else if currentPage === 'ai'}
+				<AiSummarizer />
+			{/if}
       </div>
 </div>
